@@ -1,0 +1,27 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "chopsticks"
+version = "0.1.0"
+description = "Action-Masked Double Dueling DQN and Exact Retrograde Oracle for the Chopsticks hand game"
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "numpy>=2.1.0",
+    "torch>=2.6.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+]
+
+[project.scripts]
+chopsticks-train = "chopsticks.train:main"
+chopsticks-play = "chopsticks.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
